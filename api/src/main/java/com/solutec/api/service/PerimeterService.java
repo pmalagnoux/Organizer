@@ -16,17 +16,17 @@ public class PerimeterService {
     @Autowired
     PerimeterRepository perimeterRepository;
 
-    public List<Perimeter> getAllContacts() {
+    public List<Perimeter> getAllPerimeters() {
         List<Perimeter> result = new ArrayList<>();
         this.perimeterRepository.findAll().forEach(result::add);
         return result;
     }
 
-    public Perimeter addContact(Perimeter perimeter) {
+    public Perimeter addPerimeter(Perimeter perimeter) {
         return this.perimeterRepository.save(perimeter);
     }
 
-    public Perimeter getContactById(int idPerimeter) {
+    public Perimeter getPerimeterById(int idPerimeter) {
         Optional<Perimeter> hOpt = this.perimeterRepository.findById(idPerimeter);
         if (hOpt.isPresent()) {
             return hOpt.get();

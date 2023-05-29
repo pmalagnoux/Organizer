@@ -16,17 +16,17 @@ public class TypeService {
     @Autowired
     TypeRepository typeRepository;
 
-    public List<Type> getAllContacts() {
+    public List<Type> getAllTypes() {
         List<Type> result = new ArrayList<>();
         this.typeRepository.findAll().forEach(result::add);
         return result;
     }
 
-    public Type addContact(Type type) {
+    public Type addType(Type type) {
         return this.typeRepository.save(type);
     }
 
-    public Type getContactById(int idType) {
+    public Type getTypeById(int idType) {
         Optional<Type> hOpt = this.typeRepository.findById(idType);
         if (hOpt.isPresent()) {
             return hOpt.get();

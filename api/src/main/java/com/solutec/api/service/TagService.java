@@ -16,17 +16,17 @@ public class TagService {
     @Autowired
     TagRepository tagRepository;
 
-    public List<Tag> getAllContacts() {
+    public List<Tag> getAllTags() {
         List<Tag> result = new ArrayList<>();
         this.tagRepository.findAll().forEach(result::add);
         return result;
     }
 
-    public Tag addContact(Tag tag) {
+    public Tag addTag(Tag tag) {
         return this.tagRepository.save(tag);
     }
 
-    public Tag getContactById(int idTag) {
+    public Tag getTagById(int idTag) {
         Optional<Tag> hOpt = this.tagRepository.findById(idTag);
         if (hOpt.isPresent()) {
             return hOpt.get();
