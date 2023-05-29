@@ -1,5 +1,5 @@
 
-INSERT INTO contact(name, mail)
+INSERT INTO contact(first_name, last_name, mail)
 	VALUES
-	('oui','oui@test.fr'),
-	('non','non@test.fr');
+	('oui', 'non', 'oui@test.fr'),
+	('non', 'oui', 'non@test.fr');
