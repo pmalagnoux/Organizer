@@ -1,0 +1,57 @@
+
+#header {
+
+	text-align: center;
+	vertical-align: middle;
+	background-color: #7e10d3;
+    color: white;
+	height: 60px;
+		
+	position: sticky ;
+	top: 0;
+	z-index: 1001;
+	width:100%;
+
+    display: flex;   
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+    align-items: center;
+
+    .title{
+        height: 100%;
+        display: flex;
+        align-items: center; 
+        cursor: pointer;
+    }
+
+    h2 {
+        font-family: Helvetica;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .selector-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+        flex-wrap: nowrap;
+        height: 100%;
+        cursor: pointer;
+    }
+
+     .selector-button{
+        height: 100%;  
+     }
+
+     .selector-button:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+     }
+
+     .parameter-button {
+        
+     }
+
+}
+
+
