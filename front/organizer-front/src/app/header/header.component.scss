@@ -3,7 +3,14 @@
 
 	text-align: center;
 	vertical-align: middle;
-	background-color: #7e10d3;
+	background: linear-gradient(#45496df2,  #45496df2) padding-box,
+        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+
+
+    border-bottom: 5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%);
+
     color: white;
 	height: 60px;
 		
@@ -22,12 +29,15 @@
         display: flex;
         align-items: center; 
         cursor: pointer;
+        border-right: 5px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(-45deg, #9400ff 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%);
     }
 
     h2 {
         font-family: Helvetica;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
 
@@ -38,20 +48,33 @@
         flex-wrap: nowrap;
         height: 100%;
         cursor: pointer;
+        flex-grow: 1;
     }
 
      .selector-button{
         height: 100%;  
      }
 
-     .selector-button:hover {
-        background-color: rgba(0, 0, 0, 0.3);
+     .selector-button:hover{
+        border-bottom: 5px solid rgb(255, 255, 255) ;
+        margin-bottom: -5px;
      }
 
      .parameter-button {
-        
-     }
+        border: 0px solid white;
+        border-radius: 100%;
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
 
+        i{
+            color: rgb(255, 255, 255);
+            font-size: 2rem;
+        }
+     }
 }
 
 
