@@ -1,0 +1,101 @@
+$base-color: #121535;
+
+.content {
+    margin: 0;
+    padding: 0;
+    top:0;
+    width: 100%;
+    height:calc(100vh - 65px);
+    background-color: $base-color;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.text-box {
+    width: 100%;
+    text-align: center;
+    font-family: Helvetica;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    color:white;
+    .title {
+        
+        font-size: 4rem;      
+        padding-left: 3%;
+        padding-right: 3%;
+
+        background: linear-gradient($base-color, $base-color) padding-box,
+        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        border-radius: 50em;
+        border: 2px solid transparent;
+    }
+    span {
+        font-size: 1.5rem;    
+    }
+}
+
+.button-bar{
+    display: flex;
+    width: 100%;
+    color: white;
+    font-family: Helvetica;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+    .button {
+        font-size: 2rem;   
+        background: linear-gradient($base-color, $base-color) padding-box,
+        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        border-radius: 50em;
+        border: 2px solid transparent;
+        padding-left: 2%;
+        padding-right: 2%; 
+        cursor: pointer;
+    }
+}
+
+.search {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-size: 2rem; 
+
+
+    .search-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.5%;
+        width: 40%;
+       
+    }
+    input[type=text] {
+        width: 90%;
+        font-size: 2rem;   
+        color: white;
+        font-family: Helvetica;
+        padding:1% 2% 1% 2%;
+        border-radius:50em 0% 0% 50em;
+        background: linear-gradient(#45496df2,  #45496df2) padding-box,
+        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        border: 2px solid transparent;
+
+    }
+    span {
+        padding:1% 2% 1% 1%;
+        border-radius:0% 50em 50em 0%;
+        border: 2px solid transparent;
+        background: linear-gradient($base-color, $base-color) padding-box,
+        linear-gradient(90deg, rgba(0,254,255,1) 0%, rgba(218,0,255,1) 50%, rgba(127,0,255,1) 100%) border-box;
+        border-radius: 50em 50em 50em em;
+        border: 2px solid transparent;
+    }
+
+}
