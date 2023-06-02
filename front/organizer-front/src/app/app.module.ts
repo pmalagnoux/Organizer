@@ -11,16 +11,18 @@ import { PerimeterService } from './service/perimeter.service';
 import { TagService } from './service/tag.service';
 import { TypeService } from './service/type.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactsListComponent } from './contacts/contacts-list/contacts-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
   providers: [

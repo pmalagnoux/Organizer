@@ -1,0 +1,66 @@
+$base-color: #121535;
+
+.content {
+    margin: 0;
+    padding: 0;
+    top:0;
+    width: 100%;
+    height:calc(100vh - 65px);
+    background-color: $base-color;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+
+.list{
+    width: 70%;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap:15px
+    
+}
+
+.list-header {
+    height: 60px;
+    border: 2px solid transparent;
+    background-color: #45496d;
+}
+
+
+.list-item {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20%;
+    background-color: #45496d;
+    font-family: Helvetica;
+    background: linear-gradient( #45496df2,  #45496df2) padding-box,
+        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    border: 1px solid transparent;
+
+    .name {
+        width: 33%;
+        padding-left: 1%;
+    }
+
+    .mail {
+        width: 20%;
+    }
+
+    .perimeter {
+        width: 20%;
+    }
+    
+}

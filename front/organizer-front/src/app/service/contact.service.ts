@@ -14,11 +14,11 @@ export class ContactService {
     this.contactsUrl = 'http://localhost:8081/organizer/contacts';
   }
 
-  public findAll(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactsUrl);
+  public getAllContacts(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(`${this.contactsUrl}/getAllContacts`);
   }
 
-  public save(contact: Contact) {
-    return this.http.post<Contact>(this.contactsUrl, contact);
-  }
+  // public addContact(contact: Contact) {
+  //   return this.http.post<Contact>(this.contactsUrl, contact);
+  // }
 }

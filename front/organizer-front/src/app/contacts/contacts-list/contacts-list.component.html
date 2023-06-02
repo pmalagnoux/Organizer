@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="list">
+        <div class="list-item list-header">
+            <span class="name">Prénom + Nom</span>
+            <span class="mail">Mail</span>
+            <span class="perimeter">Périmètre</span>
+        </div>
+        <div class="list-item" *ngFor="let contact of contactList$ | async">
+            <span class="name">{{contact.firstNameContact + " " + contact.lastNameContact}}</span>
+            <span class="mail">{{contact.mailContact}}</span>
+            <span class="perimeter"></span>
+        </div>
+    </div>
+</div>
+
+
