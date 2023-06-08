@@ -22,57 +22,57 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int idContact;
+    private int id;
 
     @Column(name = "first_name")
-    private String firstNameContact;
+    private String firstName;
 
     @Column(name = "last_name")
-    private String lastNameContact;
+    private String lastName;
 
     @Column(name = "mail")
-    private String mailContact;
+    private String mail;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "perimeter_contact", joinColumns = @JoinColumn(name = "id_perimeter"), inverseJoinColumns = @JoinColumn(name = "id_contact"))
     private List<Contact> contacts = new ArrayList<>();
 
     public Contact(String firstNameContact, String lastNameContact, String mailContact) {
-        this.firstNameContact = firstNameContact;
-        this.lastNameContact = lastNameContact;
-        this.mailContact = mailContact;
+        this.firstName = firstNameContact;
+        this.lastName = lastNameContact;
+        this.mail = mailContact;
     }
 
     public Contact() {
 
     }
 
-    public String getFirstNameContact() {
-        return firstNameContact;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstNameContact(String firstNameContact) {
-        this.firstNameContact = firstNameContact;
+    public void setFirstName(String firstNameContact) {
+        this.firstName = firstNameContact;
     }
 
-    public String getLastNameContact() {
-        return lastNameContact;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNameContact(String lastNameContact) {
-        this.lastNameContact = lastNameContact;
+    public void setLastName(String lastNameContact) {
+        this.lastName = lastNameContact;
     }
 
-    public String getMailContact() {
-        return mailContact;
+    public String getMail() {
+        return mail;
     }
 
-    public void setMailContact(String mailContact) {
-        this.mailContact = mailContact;
+    public void setMail(String mailContact) {
+        this.mail = mailContact;
     }
 
-    public int getIdContact() {
-        return idContact;
+    public int getId() {
+        return id;
     }
 
 }
