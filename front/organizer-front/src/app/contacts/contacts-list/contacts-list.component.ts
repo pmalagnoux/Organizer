@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
@@ -14,13 +15,17 @@ export class ContactsListComponent implements OnInit {
 
 
 
-  constructor(private contactService: ContactService){}
+  constructor(private contactService: ContactService, private router: Router){}
 
 
   ngOnInit(){
     this.contactList$ = this.contactService.getAllContacts().pipe(tap(
-      result => result.sort((x, y) => x.firstNameContact.localeCompare(y.firstNameContact, 'fr', {ignorePunctuation: true}))
+      result => result.sort((x, y) => x.firstName.localeCompare(y.firstName, 'fr', {ignorePunctuation: true}))
     ));
     //TODO : Rajouter les périmètres aussi en bout de ligne
+  }
+
+  toAddContact(){
+    this.router.navigateByUrl(`/addcontact`);
   }
 }

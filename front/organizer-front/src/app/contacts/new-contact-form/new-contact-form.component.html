@@ -1,0 +1,29 @@
+<div class="content">
+
+
+    <div class="form-card">
+        <h2>Créer un contact</h2>
+        <form class="form" [formGroup]="contactForm" (submit)="onSubmitContactForm()">
+            
+            <div class="form-field">
+                <label for="first-name">Prénom : </label>
+                <input id="first-name" type="text" formControlName="firstName" placeholder="Prénom">
+            </div>
+            
+            <div class="form-field">
+                <label for="last-name">Nom : </label>
+                <input id="last-name" type="text" formControlName="lastName" placeholder="Nom">
+            </div>
+            
+            <div class="form-field">
+                <label for="mail">Mail : </label>
+                <input id="mail" type="mail" formControlName="mail" placeholder="xxxx@domaine.fr">
+            </div>
+            <div class="action-button">
+                <div  type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+            </div>
+        </form>
+    </div>
+
+
+</div>

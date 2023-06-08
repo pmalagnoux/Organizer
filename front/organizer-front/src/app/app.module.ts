@@ -12,17 +12,21 @@ import { TagService } from './service/tag.service';
 import { TypeService } from './service/type.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactsListComponent } from './contacts/contacts-list/contacts-list.component';
+import { ContactPageComponent } from './contacts/contact-page/contact-page.component';
+import { NewContactFormComponent } from './contacts/new-contact-form/new-contact-form.component';
+import { FormsModule } from '@angular/forms';
+import { ContactModule } from './contacts/contact.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContactsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ContactModule
 
   ],
   providers: [
