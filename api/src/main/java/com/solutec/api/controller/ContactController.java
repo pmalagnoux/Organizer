@@ -14,13 +14,13 @@ import com.solutec.api.model.Contact;
 import com.solutec.api.service.ContactService;
 
 @RestController
-@RequestMapping("/organizer/contacts")
+@RequestMapping("/contact")
 public class ContactController {
 
     @Autowired
     ContactService contactService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getAllContacts")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
@@ -30,7 +30,7 @@ public class ContactController {
         return contactService.addContact(contact);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getContact/{idContact}")
+    @RequestMapping(method = RequestMethod.GET, value = "/{idContact}")
     public Contact addContact(@PathVariable int idContact) {
         return contactService.getContactById(idContact);
     }

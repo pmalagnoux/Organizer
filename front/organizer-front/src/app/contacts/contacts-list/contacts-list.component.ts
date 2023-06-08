@@ -22,6 +22,7 @@ export class ContactsListComponent implements OnInit {
     this.contactList$ = this.contactService.getAllContacts().pipe(tap(
       result => result.sort((x, y) => x.firstName.localeCompare(y.firstName, 'fr', {ignorePunctuation: true}))
     ));
+    console.log(this.contactList$);
     //TODO : Rajouter les périmètres aussi en bout de ligne
   }
 
