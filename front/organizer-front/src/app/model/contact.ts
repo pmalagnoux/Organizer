@@ -1,7 +1,6 @@
 export class Contact {
-     idContact!: number;
-     firstNameContact!: string;
-     lastNameContact!: string;
-     mailContact!: string;
-
+     id!: number;
+     firstName!: string;
+     lastName!: string;
+     mail!: string;
 }

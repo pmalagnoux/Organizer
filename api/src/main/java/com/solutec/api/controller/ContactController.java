@@ -34,4 +34,6 @@ public class ContactController {
     public Contact addContact(@PathVariable int idContact) {
         return contactService.getContactById(idContact);
     }
+
+    
 }
