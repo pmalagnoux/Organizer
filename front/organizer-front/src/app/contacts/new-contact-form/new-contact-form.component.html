@@ -3,7 +3,7 @@
 
     <div class="form-card">
         <h2>Créer un contact</h2>
-        <form class="form" [formGroup]="contactForm" (submit)="onSubmitContactForm()">
+        <form class="form" [formGroup]="contactForm">
             
             <div class="form-field">
                 <label for="first-name">Prénom : </label>
@@ -20,7 +20,7 @@
                 <input id="mail" type="mail" formControlName="mail" placeholder="xxxx@domaine.fr">
             </div>
             <div class="action-button">
-                <div  type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+                <div (click)="onSubmitContactForm()"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
             </div>
         </form>
     </div>
