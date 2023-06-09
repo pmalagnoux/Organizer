@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.solutec.api.model.Contact;
 import com.solutec.api.repository.ContactRepository;
@@ -31,7 +33,7 @@ public class ContactService {
         if (hOpt.isPresent()) {
             return hOpt.get();
         }
-        return null;
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     public void deleteContact(int idContact) {

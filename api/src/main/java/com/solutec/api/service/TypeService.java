@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.solutec.api.model.Type;
 import com.solutec.api.repository.TypeRepository;
@@ -31,6 +33,10 @@ public class TypeService {
         if (hOpt.isPresent()) {
             return hOpt.get();
         }
-        return null;
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    public void deleteType(int idType) {
+        this.typeRepository.deleteById(idType);
     }
 }

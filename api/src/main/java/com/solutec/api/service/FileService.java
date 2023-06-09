@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.solutec.api.model.File;
 import com.solutec.api.repository.FileRepository;
@@ -27,7 +29,15 @@ public class FileService {
         if (hOpt.isPresent()) {
             return hOpt.get();
         }
-        return null;
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    public File addFile(File file) {
+        return this.fileRepository.save(file);
+    }
+
+    public void deleteFile(int idFile) {
+        this.fileRepository.deleteById(idFile);
     }
 
 }
