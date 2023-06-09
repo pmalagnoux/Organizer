@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.solutec.api.model.Contact;
 import com.solutec.api.model.Perimeter;
 import com.solutec.api.repository.PerimeterRepository;
 
@@ -30,6 +31,20 @@ public class PerimeterService {
         Optional<Perimeter> hOpt = this.perimeterRepository.findById(idPerimeter);
         if (hOpt.isPresent()) {
             return hOpt.get();
+        }
+        return null;
+    }
+
+    public void deletePerimeter(int idPerimeter) {
+        this.perimeterRepository.deleteById(idPerimeter);
+    }
+
+    public Perimeter addContact(Contact contact, int idPerimeter) {
+        Optional<Perimeter> hOpt = this.perimeterRepository.findById(idPerimeter);
+        if (hOpt.isPresent()) {
+            Perimeter perimeter = hOpt.get();
+            perimeter.getContacts().add(contact);
+            return this.perimeterRepository.save(perimeter);
         }
         return null;
     }

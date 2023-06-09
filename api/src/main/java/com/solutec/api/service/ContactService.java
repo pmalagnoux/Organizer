@@ -33,4 +33,8 @@ public class ContactService {
         }
         return null;
     }
+
+    public void deleteContact(int idContact) {
+        this.contactRepository.deleteById(idContact);
+    }
 }

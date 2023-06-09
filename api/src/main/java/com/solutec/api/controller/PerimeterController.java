@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.solutec.api.model.Contact;
 import com.solutec.api.model.Perimeter;
 import com.solutec.api.service.PerimeterService;
 
 @RestController
-@RequestMapping("/organizer/perimeters")
+@RequestMapping("/perimeter")
 public class PerimeterController {
 
     @Autowired
     PerimeterService perimeterService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getAllPerimeters")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     public List<Perimeter> getAllPerimeters() {
         return perimeterService.getAllPerimeters();
     }
@@ -29,8 +30,18 @@ public class PerimeterController {
         return perimeterService.addPerimeter(perimeter);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getPerimeter/{idPerimeter}")
-    public Perimeter addPerimeter(@PathVariable int idPerimeter) {
+    @RequestMapping(method = RequestMethod.GET, value = "/{idPerimeter}")
+    public Perimeter getPerimeterById(@PathVariable int idPerimeter) {
         return perimeterService.getPerimeterById(idPerimeter);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{idPerimeter}")
+    public void deletePerimeter(@PathVariable int idPerimeter) {
+        perimeterService.deletePerimeter(idPerimeter);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/{idPerimeter}/addContact")
+    public Perimeter addContact(@RequestBody Contact contact, @PathVariable int idPerimeter) {
+        return perimeterService.addContact(contact, idPerimeter);
     }
 }
