@@ -1,5 +1,4 @@
 $base-color: #121535;
-
 .content {
     margin: 0;
     padding: 0;
@@ -15,9 +14,6 @@ $base-color: #121535;
     gap: 20px;
 }
 
-
-
-
 .list{
     width: 70%;
     color:white;
@@ -26,7 +22,8 @@ $base-color: #121535;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: stretch;
-    gap:15px
+    gap:15px;
+    padding-bottom: 20px;
     
 }
 

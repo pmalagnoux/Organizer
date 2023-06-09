@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Diagnostics.CodeAnalysis;
 
 namespace apic.Database
 
@@ -25,5 +24,7 @@ namespace apic.Database
         [Column("mail")]
         public string? mail { get; set; }
 
+        [AllowNull]
+        public ICollection<Perimeter> perimeters { get; set; } = new List<Perimeter>();
     }
 }

@@ -25,13 +25,12 @@ builder.Services.AddControllers();
 
 //Add connection to db.
 
+builder.Services.AddDbContext<PerimeterContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("Organizer")));
 builder.Services.AddDbContext<ContactContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("Organizer")));
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 

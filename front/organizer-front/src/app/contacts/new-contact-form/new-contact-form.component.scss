@@ -47,10 +47,8 @@ $base-color: #121535;
     display: flex;
     width: 70%;
     align-items: center;
-    
     label {
         width: 20%;
-
     }
 
     input {
@@ -70,4 +68,5 @@ $base-color: #121535;
     border: 2px solid transparent;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
