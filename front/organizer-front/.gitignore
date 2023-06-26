@@ -42,6 +42,6 @@ testem.log
 Thumbs.db
 
 
-.vs
-bin
-obj
+.vs/*
+bin/*
+obj/*
