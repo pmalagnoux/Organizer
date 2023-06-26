@@ -4,12 +4,14 @@ import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { NewContactFormComponent } from "./new-contact-form/new-contact-form.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
     declarations: [
         ContactsListComponent,
         ContactPageComponent,
         NewContactFormComponent,
+        ContactFormComponent,
 
     ],
     imports: [ 

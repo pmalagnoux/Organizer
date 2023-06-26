@@ -12,11 +12,11 @@ $base-color: #121535;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    
 }
 
 .list{
     width: 70%;
-    color:white;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -24,13 +24,14 @@ $base-color: #121535;
     align-items: stretch;
     gap:15px;
     padding-bottom: 20px;
-
+    
 }
 
 
 
 
 .list-item {
+    color: white;
     backdrop-filter: blur(10px);
     height: 60px;
     display: flex;
@@ -38,7 +39,7 @@ $base-color: #121535;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-
+    
     background-color: #45496d;
     font-family: Helvetica;
     background: linear-gradient( #505050f2,  #45496df2) padding-box,
@@ -47,22 +48,18 @@ $base-color: #121535;
 
     .name {
         padding-left: 1%;
-        width: 30%;
+        width: 40%;
         display: flex;
         justify-content: left;
     }
 
-    .mail {
-        width: 30%;
+   
+
+    .contact {
+        width: 40%;
         display: flex;
         justify-content: center;
-    }
-
-    .perimeter {
-        width: 30%;
-        display: flex;
-        justify-content: center;
-
+        
     }
     hr {
         border: 1px solid transparent;
@@ -87,7 +84,7 @@ $base-color: #121535;
     display: flex;
     justify-content: end;
     align-items: center;
-
+    
 
 }
 
@@ -111,10 +108,11 @@ $base-color: #121535;
         background-clip: text;
         -webkit-background-clip: text;
     }
-
 }
 
+
 .action-button {
+    
     display: flex;
     gap:20px;
     height: 100%;
@@ -147,5 +145,5 @@ $base-color: #121535;
     border: 1px solid transparent;
     border-radius: 50%;
     cursor: pointer;
-
+    
 }
