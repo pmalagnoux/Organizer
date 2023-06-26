@@ -5,8 +5,7 @@
     },
     "postgresql1": {
       "type": "postgresql",
-      "connectionId": "jdbc:postgresql:::localhost:5432:organizer",
-      "dynamicId": null
+      "connectionId": "jdbc:postgresql:::localhost:5432:organizer"
     }
   }
 }

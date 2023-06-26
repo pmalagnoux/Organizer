@@ -60,7 +60,7 @@ namespace apic.Controllers
             }
         }
 
-        [HttpDelete("deleteContact/{id}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             try
@@ -75,5 +75,18 @@ namespace apic.Controllers
            
         }
 
+        [HttpPost("{id}/addPerimeter")]
+        public void AddContact(Perimeter perimeter, int id)
+        {
+            try
+            {
+                _db.AddPerimeter(perimeter, id);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

@@ -1,1 +1,30 @@
-<p>contact-page works!</p>
+<div class="content">
+
+
+    <div class="card">
+        <h2>{{(contact$ | async)?.firstName}}  {{(contact$ | async)?.lastName}}</h2>
+        <span>{{(contact$ | async)?.mail}}</span>
+        <div class="perimeter-bar">
+            <select id="perimeter" class="selector" [(ngModel)]="perimeter" required>
+                <option selected [ngValue]="undefined">Choisissez un périmètre</option>
+                <option *ngFor="let peri of perimeters$ | async" [ngValue]="peri">{{peri.content}}</option>
+            </select>
+            <div class="add-button right" (click)="submitPerimeterForm()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="perimeter-list">
+            <h3>Liste des périmètres</h3>
+            <hr class="separator-perimeter">
+            <div *ngFor="let perimeter of (contact$ | async)?.perimeters">
+                <div class="perimeter-line">
+                    <span>{{perimeter.content}}</span>
+                    <div class="action-button" (click)="deletePerimeter(perimeter.id)"> 
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </div>
+                <hr class="separator-perimeter">
+            </div>
+        </div>
+    </div>
+</div>

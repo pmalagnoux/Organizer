@@ -16,6 +16,7 @@ import { ContactPageComponent } from './contacts/contact-page/contact-page.compo
 import { NewContactFormComponent } from './contacts/new-contact-form/new-contact-form.component';
 import { FormsModule } from '@angular/forms';
 import { ContactModule } from './contacts/contact.module';
+import { PerimetersModule } from './perimeters/perimeters.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactModule } from './contacts/contact.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ContactModule
+    ContactModule,
+    PerimetersModule
 
   ],
   providers: [

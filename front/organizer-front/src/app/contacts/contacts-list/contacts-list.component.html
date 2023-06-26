@@ -7,16 +7,28 @@
     
     <div class="list">
         <div class="list-item list-header">
-            <span class="name">Prénom + Nom</span>
-            <span class="mail">Mail</span>
-            <span class="perimeter">Périmètre</span>
+            <div class="name">Prénom + Nom</div>
+            <hr>
+            <div class="mail">Mail</div>
+            <hr>
+            <div class="perimeter">Périmètre</div>
+            <hr>
+            <div class="action-button"click=""> 
+                <i class="fa fa-trash red-border"></i>
+            </div>
         </div>
-        <div class="list-item" *ngFor="let contact of contactList$ | async">
-            <span class="name">{{contact.firstName + " " + contact.lastName}}</span>
-            <span class="mail">{{contact.mail}}</span>
-            <span class="perimeter"></span>
+        <div class="list-item" *ngFor="let contact of contactList$ | async" (click)="toContact(contact.id)">
+            <div class="name">{{contact.firstName + " " + contact.lastName}}</div>
+            <hr>
+            <div class="mail">{{contact.mail}}</div>
+            <hr>
+            <div class="perimeter" *ngIf="contact.perimeters.length > 0">{{contact.perimeters[0].content}}</div>
+            <div class="perimeter" *ngIf="contact.perimeters.length == 0"></div>
+            <hr>
+            <div class="action-button"> 
+                <i class="fa fa-trash red-border" (click)="deleteContact(contact.id, $event)"></i>
+                <i class="fa fa-pen yellow-border" (click)="toUpdateContact(contact.id, $event)"></i>
+            </div>
         </div>
     </div>
 </div>
-
-

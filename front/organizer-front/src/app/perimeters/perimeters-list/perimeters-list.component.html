@@ -1,0 +1,31 @@
+<div class="content">
+    <div class="button-bar">
+        <div class="add-button right" (click)="toAddPerimeter()">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    
+    <div class="list">
+        <div class="list-item list-header">
+            <div class="name">Nom du périmètre</div>
+          
+            <hr>
+            <div class="contact">Nombre de Contact</div>
+            <hr>
+            <div class="action-button"click=""> 
+                <i class="fa fa-trash red-border"></i>
+            </div>
+        </div>
+        <div class="list-item" *ngFor="let perimeter of perimeterList$ | async" (click)="toPerimeter(perimeter.id)">
+            <div class="name">{{perimeter.content}}</div>
+            <hr>
+            <div class="contact" *ngIf="perimeter.contacts.length > 0">{{perimeter.contacts.length}}</div>
+            <div class="contact" *ngIf="perimeter.contacts.length == 0">0</div>
+            <hr>
+            <div class="action-button" click=""> 
+                <i class="fa fa-trash red-border" (click)="deletePerimeter(perimeter.id)"></i>
+                <i class="fa fa-pen yellow-border" ></i>
+            </div>
+        </div>
+    </div>
+</div>

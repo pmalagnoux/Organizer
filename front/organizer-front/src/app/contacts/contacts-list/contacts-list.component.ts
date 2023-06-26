@@ -22,11 +22,27 @@ export class ContactsListComponent implements OnInit {
     this.contactList$ = this.contactService.getAllContacts().pipe(tap(
       result => result.sort((x, y) => x.firstName.localeCompare(y.firstName, 'fr', {ignorePunctuation: true}))
     ));
-    console.log(this.contactList$);
-    //TODO : Rajouter les périmètres aussi en bout de ligne
+    
+
   }
 
   toAddContact(){
     this.router.navigateByUrl(`/addcontact`);
+  }
+
+  toContact(idContact: number){
+    this.router.navigateByUrl(`/contact/${idContact}`);
+  }
+
+  deleteContact(idContact : number, event: Event){
+    event.stopImmediatePropagation();
+    this.contactService.deleteContactById(idContact).subscribe((data) => {
+      window.location.reload();
+    });
+  }
+
+  toUpdateContact(idContact: number, event: Event){
+    event.stopImmediatePropagation();
+    this.router.navigateByUrl(`/updatecontact/${idContact}`);
   }
 }
