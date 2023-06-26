@@ -42,4 +42,12 @@ public class Perimeter {
         return idPerimeter;
     }
 
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
 }

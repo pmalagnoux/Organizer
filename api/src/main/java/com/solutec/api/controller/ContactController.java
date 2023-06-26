@@ -35,5 +35,8 @@ public class ContactController {
         return contactService.getContactById(idContact);
     }
 
-    
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{idContact}")
+    public void deleteContact(@PathVariable int idContact) {
+        contactService.deleteContact(idContact);
+    }
 }
