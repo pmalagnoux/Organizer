@@ -60,7 +60,7 @@ namespace apic.Controllers
             }
         }
 
-        [HttpDelete("deletePerimeter/{id}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             try

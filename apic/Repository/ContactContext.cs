@@ -1,4 +1,5 @@
 ﻿using apic.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace apic.Repository
 {
@@ -17,16 +18,8 @@ namespace apic.Repository
         public List<Contact> GetContacts()
         {
             List<Contact> response = new List<Contact>();
-            var dataList = _context.Contacts.ToList();
-            dataList.ForEach(row => response.Add(new Contact()
-            {
-
-                id = row.id,
-                firstName = row.firstName,
-                lastName = row.lastName,
-                mail = row.mail,
-            }));
-            return response;
+            var dataList = _context.Contacts.FromSql($"SELECT c.id, c.first_name, c.last_name, c.mail, t.name FROM contact AS c LEFT JOIN ( SELECT p.id_contact, p.id_perimeter, p0.id, p0.name FROM perimeter_contact AS p INNER JOIN perimeter AS p0 ON p.id_perimeter = p0.id) AS t ON c.id = t.id_contact").ToList();
+            return dataList;
         }
 
         public void AddContact(Contact contact)
@@ -49,5 +42,12 @@ namespace apic.Repository
             return response;
         }
 
+        public void AddPerimeter(Perimeter perimeter, int id)
+        {   
+            Contact response = GetContact(id);
+            response.perimeters.Add(perimeter);
+            _context.Contacts.Update(response);
+            _context.SaveChanges();
+        }
     }
 }

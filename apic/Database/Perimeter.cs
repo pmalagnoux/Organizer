@@ -16,10 +16,9 @@ namespace apic.Database
         [Required]
         [Column("name")]
         public string name { get; set; }
-        
-        
-        public ICollection<Contact> contacts { get; set; } = new List<Contact>();
 
+        public virtual ICollection<Contact> contacts { get; set; } = new List<Contact>();
 
+        //public virtual ICollection<PerimeterContact> perimetersContacs { get; set; } = new List<PerimeterContact>();
     }
 }
