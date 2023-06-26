@@ -42,6 +42,9 @@ testem.log
 Thumbs.db
 
 
-.vs/*
-bin/*
-obj/*
+apica/.vs/*
+apica/bin/*
+apica/obj/*
+apic/.vs/*
+apic/bin/*
+apic/obj/*
