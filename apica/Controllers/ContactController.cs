@@ -107,12 +107,12 @@ namespace apica.Controllers
 
         }
 
-        [HttpPost("{id}/addPerimeter")]
-        public void AddContact(Perimeter perimeter, int id)
+        [HttpPost("{id}/addPerimeter/{idPerimeter}")]
+        public void AddPerimeter(int id, int idPerimeter)
         {
             try
             {
-                _db.AddPerimeter(perimeter, id);
+                _db.AddPerimeter(idPerimeter, id);
 
             }
             catch (Exception ex)

@@ -6,7 +6,5 @@
         public int PerimeterId { get; set; }
         public Contact Contact { get; set; }
         public Perimeter Perimeter { get; set; }
-
-
     }
 }

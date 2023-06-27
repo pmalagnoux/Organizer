@@ -28,7 +28,7 @@ export class ContactPageComponent implements OnInit{
 
   submitPerimeterForm(){
     if(this.perimeter != undefined){
-      this.contactService.addPerimeter(this.perimeter, this.contactId).subscribe((data) =>{
+      this.contactService.addPerimeter(this.perimeter.id, this.contactId).subscribe((data) =>{
         window.location.reload();
       });
     }
