@@ -40,17 +40,22 @@ namespace apica.Helpers
             _context.SaveChanges();
         }
 
-        public Perimeter GetPerimeter(int id)
+        public Perimeter? GetPerimeter(int id)
         {
-            Perimeter response = _context.Perimeters.Include(pe => pe.Contacts).FirstOrDefault(x=> x.Id == id);
+            Perimeter? response = _context.Perimeters.Include(pe => pe.Contacts).FirstOrDefault(x=> x.Id == id);
             return response;
         }
 
-        public void UpdatePerimeter(int id, Perimeter perimeter)
+        public Perimeter? UpdatePerimeter(int id, Perimeter perimeter)
         {
-            Perimeter response = _context.Perimeters.FirstOrDefault(pe => pe.Id == id);
+            Perimeter? response = _context.Perimeters.FirstOrDefault(pe => pe.Id == id);
+            if (response == null)
+            {
+                return null;
+            }
             response.Content = perimeter.Content;
             _context.SaveChanges();
+            return response;
         }
 
         public void AddContact(int idContact, int idPerimeter)

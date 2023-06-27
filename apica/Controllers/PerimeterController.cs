@@ -35,30 +35,30 @@ namespace apic.Controllers
 
 
         [HttpGet("{id}")]
-        public Perimeter GetById(int id)
+        public IActionResult GetById(int id)
         {
-            try
+            Perimeter? data = _db.GetPerimeter(id);
+            if (data != null)
             {
-                Perimeter data = _db.GetPerimeter(id);
-                return data;
-            }
-            catch (Exception ex)
+                return Ok(data);
+            } 
+            else
             {
-                return null;
+                return NotFound();
             }
         }
 
         [HttpPost("{id}")]
-        public void UpdateById(int id, Perimeter perimeter)
+        public IActionResult UpdateById(int id, Perimeter perimeter)
         {
-            try
+            Perimeter? data = _db.UpdatePerimeter(id, perimeter);
+            if (data != null)
             {
-                _db.UpdatePerimeter(id, perimeter);
-
+                return Ok();
             }
-            catch (Exception ex)
+            else
             {
-
+                return NotFound();
             }
         }
 
