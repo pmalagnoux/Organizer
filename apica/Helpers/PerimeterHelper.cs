@@ -53,11 +53,11 @@ namespace apica.Helpers
             _context.SaveChanges();
         }
 
-        public void AddContact(Contact contact, int id)
+        public void AddContact(int idContact, int idPerimeter)
         {
-            Perimeter response = GetPerimeter(id);
+            Perimeter response = _context.Perimeters.Include(c => c.Contacts).Single(p => p.Id == idPerimeter);
+            Contact contact = _context.Contacts.Find(idContact);
             response.Contacts.Add(contact);
-            _context.Perimeters.Update(response);
             _context.SaveChanges();
         }
     }

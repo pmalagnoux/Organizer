@@ -106,12 +106,12 @@ namespace apic.Controllers
 
         }
 
-        [HttpPost("{id}/addContact")]
-        public void AddContact(Contact contact, int id)
+        [HttpPost("{id}/addContact/{idContact}")]
+        public void AddContact(int id, int idContact)
         {
             try
             {
-                _db.AddContact(contact, id);
+                _db.AddContact(idContact, id);
 
             }
             catch (Exception ex)
