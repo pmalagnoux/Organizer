@@ -33,10 +33,24 @@ namespace apica.Helpers
 
         }
 
+        public void RemoveContact(int idContact, int id)
+        {
+            var contactToDelete = _context.PerimeterContacts.FirstOrDefault(c => c.PerimeterId == id && c.ContactId == idContact);
+            _context.PerimeterContacts.Remove(contactToDelete);
+            _context.SaveChanges();
+        }
+
         public Perimeter GetPerimeter(int id)
         {
             Perimeter response = _context.Perimeters.Include(pe => pe.Contacts).FirstOrDefault(x=> x.Id == id);
             return response;
+        }
+
+        public void UpdatePerimeter(int id, Perimeter perimeter)
+        {
+            Perimeter response = _context.Perimeters.FirstOrDefault(pe => pe.Id == id);
+            response.Content = perimeter.Content;
+            _context.SaveChanges();
         }
 
         public void AddContact(Contact contact, int id)
