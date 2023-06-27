@@ -48,6 +48,20 @@ namespace apic.Controllers
             }
         }
 
+        [HttpPost("{id}")]
+        public void UpdateById(int id, Perimeter perimeter)
+        {
+            try
+            {
+                _db.UpdatePerimeter(id, perimeter);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         [HttpPost("addPerimeter")]
         public void Add(Perimeter perimeter)
         {
@@ -75,6 +89,21 @@ namespace apic.Controllers
 
             }
            
+        }
+
+        [HttpDelete("{id}/deleteContact/{idContact}")]
+        public void DeleteContact(int id, int idContact)
+        {
+            try
+            {
+                _db.RemoveContact(idContact, id);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         [HttpPost("{id}/addContact")]
