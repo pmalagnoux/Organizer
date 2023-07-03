@@ -58,6 +58,7 @@ namespace apica.Helpers
 
         public void AddPerimeter(int idPerimeter, int idContact)
         {
+
             Contact response = _context.Contacts.Include(p => p.Perimeters).Single(c => c.Id == idContact);
             Perimeter perimeter = _context.Perimeters.Find(idPerimeter);
             response.Perimeters.Add(perimeter);
