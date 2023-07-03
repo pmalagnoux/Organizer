@@ -17,21 +17,31 @@ export class PerimeterService {
     this.baseURL = apiUrl + "perimeter";
   }
 
-
   public getAllPerimeters(){
     return this.http.get<Perimeter[]>(`${this.baseURL}`);
   }
 
-  
   public addPerimeter(perimeter: Perimeter) {
-    return this.http.post<Perimeter>(`${this.baseURL}` + `/addPerimeter`, perimeter);
+    return this.http.post<Perimeter>(`${this.baseURL}/addPerimeter`, perimeter);
   }
 
   public getPerimeterById(idPerimeter : number){
-    return this.http.get<Perimeter>(`${this.baseURL}` + `/${idPerimeter}`);
+    return this.http.get<Perimeter>(`${this.baseURL}/${idPerimeter}`);
   }
 
   public deletePerimeterById(idPerimeter : number){
-    return this.http.delete(`${this.baseURL}` + `/${idPerimeter}`);
+    return this.http.delete(`${this.baseURL}/${idPerimeter}`);
+  }
+
+  public updatePerimeter(perimeter : Perimeter, idPerimeter : number){
+    return this.http.post(`${this.baseURL}/${idPerimeter}`, perimeter);
+  }
+
+  public deleteContact(idPerimeter : number, idContact : number){
+    return this.http.post(`${this.baseURL}/${idPerimeter}/addContact/${idContact}`, null)
+  }
+
+  public addContact(idPerimeter : number, idContact : number){
+    return this.http.post(`${this.baseURL}/${idPerimeter}/addContact/${idContact}`, null)
   }
 }

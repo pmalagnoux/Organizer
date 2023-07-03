@@ -45,7 +45,7 @@ $base-color: #121535;
     background: linear-gradient( #505050f2,  #45496df2) padding-box,
         linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
     border: 1px solid transparent;
-
+    border-radius: 10px;
     .name {
         padding-left: 1%;
         width: 40%;

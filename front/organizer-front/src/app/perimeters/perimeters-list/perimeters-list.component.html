@@ -23,8 +23,8 @@
             <div class="contact" *ngIf="perimeter.contacts.length == 0">0</div>
             <hr>
             <div class="action-button" click=""> 
-                <i class="fa fa-trash red-border" (click)="deletePerimeter(perimeter.id)"></i>
-                <i class="fa fa-pen yellow-border" ></i>
+                <i class="fa fa-trash red-border" (click)="deletePerimeter(perimeter.id, $event)"></i>
+                <i class="fa fa-pen yellow-border" (click)="toUpdatePerimeter(perimeter.id, $event)" ></i>
             </div>
         </div>
     </div>

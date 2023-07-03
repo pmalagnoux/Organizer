@@ -17,13 +17,10 @@ export class ContactsListComponent implements OnInit {
 
   constructor(private contactService: ContactService, private router: Router){}
 
-
   ngOnInit(){
     this.contactList$ = this.contactService.getAllContacts().pipe(tap(
       result => result.sort((x, y) => x.firstName.localeCompare(y.firstName, 'fr', {ignorePunctuation: true}))
     ));
-    
-
   }
 
   toAddContact(){
@@ -45,4 +42,7 @@ export class ContactsListComponent implements OnInit {
     event.stopImmediatePropagation();
     this.router.navigateByUrl(`/updatecontact/${idContact}`);
   }
+
+  
+
 }

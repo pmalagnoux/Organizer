@@ -29,10 +29,14 @@ export class PerimetersListComponent implements OnInit {
     this.router.navigateByUrl(`/perimeter/${idPerimeter}`);
   }
 
-  deletePerimeter(idContact : number){
-    this.perimeterService.deletePerimeterById(idContact).subscribe((data) => {
+  deletePerimeter(idPerimeter : number, event: Event){
+    event.stopImmediatePropagation();
+    this.perimeterService.deletePerimeterById(idPerimeter).subscribe((data) => {
       window.location.reload();
     });
   }
-
+  toUpdatePerimeter(idPerimeter : number, event: Event){
+    event.stopImmediatePropagation();
+    this.router.navigateByUrl(`/updateperimeter/${idPerimeter}`);
+  }
 }

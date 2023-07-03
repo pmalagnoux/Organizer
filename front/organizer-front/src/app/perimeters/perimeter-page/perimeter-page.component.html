@@ -1,0 +1,27 @@
+<div class="content">
+    <div class="card">
+        <h2>{{(perimeter$ | async)?.content}} </h2>
+        <div class="perimeter-bar">
+            <select id="perimeter" class="selector" [(ngModel)]="contact" required>
+                <option selected [ngValue]="undefined">Choisissez un Contact</option>
+                <option *ngFor="let contact of contacts$ | async" [ngValue]="contact">{{contact.firstName}} {{contact.lastName}}</option>
+            </select>
+            <div class="add-button right" (click)="submitContactForm()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        <div class="perimeter-list">
+            <h3>Liste des contacts</h3>
+            <hr class="separator-perimeter">
+            <div *ngFor="let contact of (perimeter$ | async)?.contacts">
+                <div class="perimeter-line">
+                    <span>{{contact.firstName}} {{contact.lastName}}</span>
+                    <div class="action-button" (click)="deleteContact(contact.id)"> 
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </div>
+                <hr class="separator-perimeter">
+            </div>
+        </div>
+    </div>
+</div>

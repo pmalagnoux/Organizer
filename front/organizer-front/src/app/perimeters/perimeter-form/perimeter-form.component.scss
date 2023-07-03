@@ -1,0 +1,73 @@
+$base-color: #121535;
+.content {
+    margin: 0;
+    padding: 0;
+    top:0;
+    width: 100%;
+    height:calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-family: Helvetica;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    
+    background: linear-gradient($base-color, $base-color) padding-box,
+    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    border-radius: 1em;
+    border: 2px solid transparent;
+    width: 50%;
+    align-items: center;
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+
+    padding-bottom: 20px;
+
+}
+
+.form-field {
+
+    display: flex;
+    width: 70%;
+    align-items: center;
+    label {
+        width: 20%;
+    }
+
+    input {
+        width: 80%;
+        flex-grow: 1;
+    }
+}
+
+
+.action-button {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient($base-color, $base-color) padding-box,
+    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    border-radius: 1em;
+    border: 2px solid transparent;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

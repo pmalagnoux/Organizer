@@ -1,0 +1,15 @@
+<div class="content">
+    <div class="form-card">
+        <h2>Créer un perimeter</h2>
+        <form class="form" [formGroup]="perimeterForm">
+            
+            <div class="form-field">
+                <label for="perimeter">Périmètre</label>
+                <input id="perimeter" type="text" formControlName="perimeter" placeholder="Nom du périmètre">
+            </div>
+            <div class="action-button">
+                <div (click)="onSubmitPerimeterForm()"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+            </div>
+        </form>
+    </div>
+</div>
