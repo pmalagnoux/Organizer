@@ -9,6 +9,7 @@ import { ContactFormComponent } from './contacts/contact-form/contact-form.compo
 import { NewPerimeterFormComponent } from './perimeters/new-perimeter-form/new-perimeter-form.component';
 import { PerimeterFormComponent } from './perimeters/perimeter-form/perimeter-form.component';
 import { PerimeterPageComponent } from './perimeters/perimeter-page/perimeter-page.component';
+import { FilesListComponent } from './files/files-list/files-list.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'addperimeter', component: NewPerimeterFormComponent},
   {path: 'perimeter/:id', component: PerimeterPageComponent},
   {path: 'updateperimeter/:id', component: PerimeterFormComponent},
+  {path: 'files', component: FilesListComponent},
 ];
 
 @NgModule({

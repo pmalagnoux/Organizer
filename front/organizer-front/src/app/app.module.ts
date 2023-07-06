@@ -17,6 +17,8 @@ import { NewContactFormComponent } from './contacts/new-contact-form/new-contact
 import { FormsModule } from '@angular/forms';
 import { ContactModule } from './contacts/contact.module';
 import { PerimetersModule } from './perimeters/perimeters.module';
+import { FilesModule } from './files/files.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PerimetersModule } from './perimeters/perimeters.module';
     AppRoutingModule,
     HttpClientModule,
     ContactModule,
-    PerimetersModule
+    PerimetersModule, 
+    FilesModule, BrowserAnimationsModule
 
   ],
   providers: [

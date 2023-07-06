@@ -1,4 +1,5 @@
-$base-color: #121535;
+@use  "reference" as ref;
+
 .content {
     margin: 0;
     padding: 0;
@@ -20,8 +21,8 @@ $base-color: #121535;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     
-    background: linear-gradient($base-color, $base-color) padding-box,
-    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border-radius: 1em;
     border: 2px solid transparent;
     width: 50%;
@@ -63,8 +64,8 @@ $base-color: #121535;
     align-content: center;
     align-items: center;
     justify-content: center;
-    background: linear-gradient($base-color, $base-color) padding-box,
-    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border-radius: 1em;
     border: 2px solid transparent;
     width: 30px;

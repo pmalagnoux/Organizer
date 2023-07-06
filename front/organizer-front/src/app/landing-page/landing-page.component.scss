@@ -1,6 +1,8 @@
-$base-color: #121535;
+@use  "reference" as ref;
 
 .content {
+
+    animation: anim-demo 20s linear infinite;
     margin: 0;
     padding: 0;
     top:0;
@@ -23,12 +25,10 @@ $base-color: #121535;
     color:white;
     .title {
         
-        font-size: 4rem;      
-        padding-left: 3%;
-        padding-right: 3%;
-
-        background: linear-gradient($base-color, $base-color) padding-box,
-        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        font-size: 40px;   
+        padding:  0.5% 3% 0.5% 3%;
+        background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
         border-radius: 50em;
         border: 2px solid transparent;
     }
@@ -48,12 +48,11 @@ $base-color: #121535;
 
     .button {
         font-size: 2rem;   
-        background: linear-gradient($base-color, $base-color) padding-box,
-        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
         border-radius: 50em;
         border: 2px solid transparent;
-        padding-left: 2%;
-        padding-right: 2%; 
+        padding:  0.5% 2% 0.5% 2%;
         cursor: pointer;
     }
 }
@@ -82,8 +81,8 @@ $base-color: #121535;
         font-family: Helvetica;
         padding:1% 2% 1% 2%;
         border-radius:50em 0% 0% 50em;
-        background: linear-gradient(#45496df2,  #45496df2) padding-box,
-        linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+        background: linear-gradient(ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
         border: 2px solid transparent;
 
     }
@@ -91,10 +90,11 @@ $base-color: #121535;
         padding:1% 2% 1% 1%;
         border-radius:0% 50em 50em 0%;
         border: 2px solid transparent;
-        background: linear-gradient($base-color, $base-color) padding-box,
-        linear-gradient(90deg, rgba(0,254,255,1) 0%, rgba(218,0,255,1) 50%, rgba(127,0,255,1) 100%) border-box;
+        background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+        linear-gradient(90deg, ref.$gradient-border-100 0%, ref.$gradient-border-50 50%, ref.$gradient-border-0 100%) border-box;
         border-radius: 50em 50em 50em em;
         border: 2px solid transparent;
     }
 
+    
 }

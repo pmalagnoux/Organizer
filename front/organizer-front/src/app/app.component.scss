@@ -1,3 +1,4 @@
+@use  "reference" as ref;
 :host {
-    background-color: #121535;
+    background-color: ref.$base-color;
 }

@@ -1,0 +1,21 @@
+<div id="file-list" class="content">
+    <mat-tree *ngIf="isReady" [dataSource]="dataSource" [treeControl]="treeControl" class="path-tree">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+            {{node.content}}
+        </mat-tree-node>
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <div class="mat-tree-node">
+                <div mat-icon-button matTreeNodeToggle
+                        [attr.aria-label]="'Toggle ' + node.content">
+                        <i class="fa-regular fa-folder" *ngIf="!treeControl.isExpanded(node)"></i>
+                        <i class="fa-regular fa-folder-open" *ngIf="treeControl.isExpanded(node)"></i>
+            </div>
+                {{node.content}}
+            </div>
+            <div [class.path-tree-invisible]="!treeControl.isExpanded(node)"
+                role="group">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+        </mat-nested-tree-node>
+    </mat-tree>
+</div>

@@ -1,4 +1,5 @@
-$base-color: #121535;
+@use  "reference" as ref;
+
 .content {
     margin: 0;
     padding: 0;
@@ -12,8 +13,9 @@ $base-color: #121535;
     align-items: center;
     color: white;
     font-family: Helvetica;
-    background: linear-gradient( #121535e1, #121535) padding-box,
-    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    
 }
 
 .card {
@@ -21,8 +23,8 @@ $base-color: #121535;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    background: linear-gradient( #121535ef, #121535) padding-box,
-    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient( ref.$base-color, ref.$base-color) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border-radius: 1em;
     border: 2px solid transparent;
     width: 50%;
@@ -46,13 +48,13 @@ $base-color: #121535;
     flex-grow: 2;
     height: 50px;
     font-size: large;
-    background: linear-gradient( #12153580, #121535) padding-box,
-    linear-gradient(45deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient( ref.$base-color-transparent, ref.$base-color) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border-radius:20px 0  0 20px;
     border: 2px solid transparent;
     option {
         color:white;
-        background: #121535;
+        background: ref.$base-color;
     }
 }
 
@@ -63,8 +65,8 @@ $base-color: #121535;
     font-size: 30px;
     width: 46px;
     height: 46px;
-    background: linear-gradient( #12153580, #121535) padding-box,
-    linear-gradient(-90deg, rgba(127,0,255,1) 0%, rgba(218,0,255,1) 50%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient( ref.$base-color-transparent, ref.$base-color) padding-box,
+    linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border-radius:0 20px 20px 0;
     border: 2px solid transparent;
 }
@@ -91,7 +93,7 @@ $base-color: #121535;
 .separator-perimeter {
     width: 80%;
     border: 1px solid transparent;
-    background: linear-gradient(-90deg, rgba(127,0,255,1) 0%, rgba(0,254,255,1) 100%) border-box;
+    background: linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
 }
 
 
@@ -115,7 +117,7 @@ $base-color: #121535;
 
         i{
             color: transparent;
-            background: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(175, 175, 175) 50%, rgb(99, 99, 99) 100%);
+            background: linear-gradient(135deg, rgb(255, 255, 255) 0%, ref.$gradient-button-50 50%, ref.$gradient-button-100 100%);
             background-clip: text;
             -webkit-background-clip: text;
         }
