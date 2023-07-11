@@ -29,7 +29,23 @@
 }
 
 
-
+.title-header {
+    height: 60px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: ref.$background-color;
+    background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+    h2 {
+        color: white;
+        
+    }
+}
 
 .list-item {
     backdrop-filter: blur(10px);
@@ -84,13 +100,12 @@
 }
 
 .button-bar {
+    gap: 15px;
     width: 70%;
     margin-top: 20px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
-
-
 }
 
 .add-button {
@@ -149,5 +164,4 @@
     border: 1px solid transparent;
     border-radius: 50%;
     cursor: pointer;
-
 }

@@ -89,7 +89,6 @@ namespace apica.Controllers
             {
 
             }
-
         }
 
         [HttpDelete("{id}/deletePerimeter/{idPerimeter}")]

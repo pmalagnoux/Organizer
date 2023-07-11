@@ -34,9 +34,10 @@ export class NewContactFormComponent implements OnInit{
       this.contactService.addContact(contact).subscribe((data)=> {
         this.router.navigateByUrl(`/contacts`);
       });
-      
-      
     }
   }
+
+
+
 
 }

@@ -3,26 +3,29 @@ using apica.Helpers;
 using apica.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using File = apica.Models.File;
 
 namespace apica.Controllers
 {
-    [Route("/file")]
+
+    [Route("/tag")]
     [ApiController]
-    public class FileController : ControllerBase
+    public class TagController : ControllerBase
     {
-        private readonly FileHelper _db;
-        public FileController(DBContext dBContext)
+
+        private readonly TagHelper _db;
+
+
+        public TagController(DBContext dBContext)
         {
-            _db = new FileHelper(dBContext);
+            _db = new TagHelper(dBContext);
         }
 
         [HttpGet("")]
-        public IEnumerable<File> Get()
+        public IEnumerable<Tag> Get()
         {
             try
             {
-                IEnumerable<File> data = _db.GetFiles();
+                IEnumerable<Tag> data = _db.GetTags();
                 return data;
             }
             catch (Exception ex)
@@ -30,13 +33,14 @@ namespace apica.Controllers
                 return null;
             }
         }
+
 
         [HttpGet("{id}")]
-        public File GetById(int id)
+        public Tag GetById(int id)
         {
             try
             {
-                File data = _db.GetFile(id);
+                Tag data = _db.GetTag(id);
                 return data;
             }
             catch (Exception ex)
@@ -45,24 +49,32 @@ namespace apica.Controllers
             }
         }
 
-
         [HttpPost("{id}")]
-        public void UpdateById(int id, File file)
+        public void UpdateById(int id, Tag tag)
         {
             try
             {
-                _db.UpdateFile(id, file);
+                _db.UpdateTag(id, tag);
+               
+            }
+            catch (Exception ex)
+            {
+            
+            }
+        }
+
+        [HttpPost("addTag")]
+        public void Add(Tag tag)
+        {
+            try
+            {
+                _db.AddTag(tag);
+
             }
             catch (Exception ex)
             {
 
             }
-        }
-
-        [HttpPost("scan")]
-        public void ScanFiles()
-        {
-            _db.ScanFiles();
         }
 
         [HttpDelete("{id}")]
@@ -70,25 +82,13 @@ namespace apica.Controllers
         {
             try
             {
-                _db.RemoveFile(id);
+                _db.RemoveTag(id);
+
             }
             catch (Exception ex)
             {
 
             }
-
-        }
-
-        [HttpPost("{id}/addTag/{idTag}")]
-        public void addTag(int id, int idTag)
-        {
-            _db.addTag(id, idTag);
-        }
-
-        [HttpDelete("{id}/addTag/{idTag}")]
-        public void deleteTag(int id, int idTag)
-        {
-            _db.RemoveTag(id, idTag);
         }
     }
 }

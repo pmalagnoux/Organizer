@@ -31,7 +31,6 @@ builder.Services.AddControllers()
 
 builder.Services.AddDbContext<DBContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("Intercontact")));
 
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

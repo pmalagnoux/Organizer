@@ -1,6 +1,7 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { AfterContentInit, AfterViewInit, Component, DoCheck, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { Router } from '@angular/router';
 import { Observable, lastValueFrom } from 'rxjs';
 import { File } from 'src/app/model/file';
 import { PathNode } from 'src/app/model/pathNode';
@@ -20,11 +21,12 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 	folders!: PathNode[];
 	treeControl!: NestedTreeControl<PathNode>;
 	dataSource!: MatTreeNestedDataSource<PathNode>;
-
+	root!: PathNode;
 	isReady = false;
-
+	fileRedirect!: File | undefined;
 	hasChild = (_: number, node: PathNode) => !!node.children && node.children.length > 0;
-	constructor(private fileService : FileService){}
+
+	constructor(private fileService : FileService,  private router: Router){}
 
 	async ngOnInit() {
 		this.folders = [];
@@ -33,7 +35,9 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 		await this.setup();
 		this.createPathTree();
 		this.reduceTree(this.folders[0]);
-		this.dataSource.data = [this.folders[0]];
+		this.root = this.folders[0];
+		console.log(this.root)
+		this.dataSource.data = [this.root];
 		this.isReady = true;
 	}
 
@@ -51,8 +55,19 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 		icon.classList.add("fa-regular") 
 		icon.classList.add("fa-file")
 		for(var i=0; i< items.length; i++){
+			this.addClickListener(items[i], this.toFile.bind(this));
 			items[i].prepend(icon.cloneNode(true));
+			
+		}
+	}
+
+	addClickListener(element: Element, callback: (content: string) => void): void {
 		
+		if (element) {
+			element.addEventListener('click', () => {
+			const content = element.textContent || ''; // Récupérer le contenu de la div
+			callback(content); // Appeler la fonction de rappel avec le contenu en tant que paramètre
+			});
 		}
 	}
 
@@ -73,8 +88,10 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 	createBranch(pathArrray : string[], index : number, previousNode : PathNode | null){
 
 		if(index == pathArrray.length - 1){
-			var leaf = new PathNode(pathArrray[index], true);
-			previousNode?.children.push(leaf);
+			var file = this.files.find(file => file.location == pathArrray.join("\\"));
+			
+				var leaf = new PathNode(pathArrray[index], file, true);
+				previousNode?.children.push(leaf);
 			return
 		}
 		else{
@@ -86,13 +103,13 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 					if (previousChild != undefined){
 						this.createBranch(pathArrray, index + 1, previousChild);
 					}else {
-						currentNode = new PathNode(pathArrray[index]);
+						currentNode = new PathNode(pathArrray[index], undefined);
 						this.folders.push(currentNode);
 						this.createBranch(pathArrray, index + 1, currentNode);
 					}
 				}
 				else{
-					currentNode = new PathNode(pathArrray[index]);
+					currentNode = new PathNode(pathArrray[index], undefined);
 					this.folders.push(currentNode);
 					this.createBranch(pathArrray, index + 1, currentNode);
 				}
@@ -127,6 +144,24 @@ export class FilesListComponent implements OnInit, AfterViewInit{
 			})
 		}
 	}
+	
+	toFile(content: string){
+		this.findFileByName(this.root, content);
+		if(this.fileRedirect != undefined){
+			this.router.navigateByUrl(`/file/${this.fileRedirect.id}`);
+		}
+	  }
 
+	findFileByName(currentNode: PathNode, name : string) {
+		if( currentNode.isLeaf && currentNode.content.trim() == name.trim()){
+			this.fileRedirect =  currentNode.file;
+		}
 
+		else {
+			for (let i = 0; i < currentNode.children.length; i++) {
+				const element = currentNode.children[i];
+				this.findFileByName( element, name);
+			}
+		}
+    }
 }

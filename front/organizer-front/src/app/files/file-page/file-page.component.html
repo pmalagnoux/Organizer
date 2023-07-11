@@ -1,0 +1,21 @@
+<div class="content">
+
+
+    <div class="card">
+        <h2>{{(file$ | async)?.name}}</h2>
+    
+        <!-- <div class="perimeter-bar">
+            <select id="perimeter" class="selector" [(ngModel)]="perimeter" required>
+                <option selected [ngValue]="undefined">Choisissez un périmètre</option>
+                <option *ngFor="let peri of perimeters$ | async" [ngValue]="peri">{{peri.content}}</option>
+            </select>
+            <div class="add-button right" (click)="submitPerimeterForm()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div> -->
+        <div class="tag-list">
+            <h3>Liste des tags</h3>
+            <hr class="separator-perimeter">
+        </div>
+    </div>
+</div>

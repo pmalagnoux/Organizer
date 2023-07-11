@@ -1,0 +1,41 @@
+<div class="content" (click)="closeModal()"   [ngStyle]="{'filter': isModalOpen ? 'blur(5px)': 'blur(0px)'}">
+    <div class="button-bar">
+        <div class="title-header">
+            <h2>Liste des Tags</h2>
+        </div>
+        <div class="add-button right" (click)="openAddModal($event)">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+
+    </div>
+
+    <div class="list">
+
+        <div class="list-item" *ngFor="let tag of tagsList$ | async">
+            <div class="inner-content">{{tag.content}}</div>
+            <hr>
+            <div class="action-button"> 
+                <i class="fa fa-trash red-border" (click)="deleteTag(tag.id, $event)"></i>
+                <i class="fa fa-pen yellow-border" (click)="openModifyModal(tag, $event)"></i>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<ng-template #modalForm>
+    
+    <form id="tag-form" class="list-item" [formGroup]="tagForm">
+        
+        <div class="form-field">
+            <label for="tag">Tag :</label>
+            <input id="tag" type="text" formControlName="tag" placeholder="tag">
+        </div>
+    <hr>
+    <div class="action-button"> 
+        <i class="fa fa-check green-border" (click)="validateForm()"></i>
+    </div>
+    </form>
+</ng-template>

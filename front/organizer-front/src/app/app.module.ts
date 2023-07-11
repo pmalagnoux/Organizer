@@ -19,6 +19,8 @@ import { ContactModule } from './contacts/contact.module';
 import { PerimetersModule } from './perimeters/perimeters.module';
 import { FilesModule } from './files/files.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TagsModule } from './tags/tags.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ContactModule,
     PerimetersModule, 
-    FilesModule, BrowserAnimationsModule
+    FilesModule, 
+    TagsModule,
+    BrowserAnimationsModule,
+    NgbModule
+
 
   ],
   providers: [

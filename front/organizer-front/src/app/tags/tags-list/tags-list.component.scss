@@ -13,21 +13,59 @@
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    
 }
 
 .list{
     width: 70%;
+    color:white;
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
-    gap:15px;
+    gap:10px;
     padding-bottom: 20px;
-    
+
 }
 
+
+
+
+.list-item {
+    flex-grow: 1;
+    backdrop-filter: blur(10px);
+    height: 60px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: ref.$background-color;
+    font-family: Helvetica;
+    background: linear-gradient( #505050f2,  ref.$background-item-transparent) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    .inner-content {
+        padding-right: 15px;
+        padding-left: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+    }
+
+   
+
+    hr {
+        border: 1px solid transparent;
+        background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+        linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(211, 211, 211) 50%, rgb(153, 153, 153) 100%) border-box;
+        height: 60%;
+    }
+}
 
 .title-header {
     height: 60px;
@@ -47,62 +85,13 @@
     }
 }
 
-.list-item {
-    color: white;
-    backdrop-filter: blur(10px);
-    height: 60px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    
-    background-color: ref.$background-color;
-    font-family: Helvetica;
-    background: linear-gradient( #505050f2,  ref.$background-item-transparent) padding-box,
-        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    .name {
-        padding-left: 1%;
-        width: 40%;
-        display: flex;
-        justify-content: left;
-    }
-
-   
-
-    .contact {
-        width: 40%;
-        display: flex;
-        justify-content: center;
-        
-    }
-    hr {
-        border: 1px solid transparent;
-        background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
-        linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(211, 211, 211) 50%, rgb(153, 153, 153) 100%) border-box;
-        height: 60%;
-    }
-}
-
-.list-header {
-    height: 60px;
-    border: 2px solid transparent;
-    background-color: ref.$background-color;
-    background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
-    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
-
-}
-
 .button-bar {
-    gap: 15px;
     width: 70%;
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    
+    gap: 15px;
 
 }
 
@@ -126,17 +115,18 @@
         background-clip: text;
         -webkit-background-clip: text;
     }
+
 }
 
-
 .action-button {
-    
+    padding-right: 15px;
+    padding-left: 15px;
     display: flex;
     gap:20px;
     height: 100%;
     align-items: center;
     justify-content: center;
-    width: 15%;
+    width: fit-content;
 }
 
 .red-border {
@@ -146,7 +136,7 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
-    linear-gradient(135deg, ref.$gradient-trash-0 0%, ref.$gradient-trash-50 50%, ref.$gradient-border-0 100%) border-box;
+    linear-gradient(135deg, ref.$gradient-trash-0 0%, ref.$gradient-trash-50 50%, ref.$gradient-border-100 100%) border-box;
     border: 1px solid transparent;
     border-radius: 50%;
     cursor: pointer;
@@ -159,9 +149,59 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
-    linear-gradient(135deg, ref.$gradient-edit-0 0%, ref.$gradient-edit-50 50%, ref.$gradient-border-0 100%) border-box;
+    linear-gradient(135deg, ref.$gradient-edit-0 0%, ref.$gradient-edit-50 50%, ref.$gradient-border-100 100%) border-box;
     border: 1px solid transparent;
     border-radius: 50%;
     cursor: pointer;
+
+}
+
+.green-border {
+    color: white;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+    linear-gradient(135deg, ref.$gradient-validate-0 0%, ref.$gradient-validate-50 50%, ref.$gradient-validate-100 100%) border-box;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.form-field {
+    padding-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    gap:10px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    color: white;
+
+    input[type=text] {
+ 
+        color: white;
+        font-family: Helvetica;
+        border-radius:5px;
+        background: linear-gradient(ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        border: 2px solid transparent;
+
+    }
+}
+
+#tag-form {
+   
+    box-shadow: 0px 0px 18px 6px rgba(255, 255, 255, 0.712);
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
 }
+

@@ -19,7 +19,7 @@ namespace apica.Helpers
         public List<File> GetFiles()
         {
             List<File> response = new List<File>();
-            var dataList = _context.Files.ToList();
+            var dataList = _context.Files.Include(c => c.Tags).ToList();
             return dataList;
         }
 
@@ -39,7 +39,7 @@ namespace apica.Helpers
 
         public File GetFile(int id)
         {
-            File response = _context.Files.FirstOrDefault(x=> x.Id == id);
+            File response = _context.Files.Include(c => c.Tags).FirstOrDefault(x=> x.Id == id);
             return response;
         }
 
@@ -84,6 +84,22 @@ namespace apica.Helpers
             {
                  ScanFiles(allFiles, subdirect);
             }
+        }
+
+
+        public void addTag(int id, int idTag)
+        {
+            File response = _context.Files.Include(p => p.Tags).Single(c => c.Id == id);
+            Tag tag = _context.Tags.Find(idTag);
+            response.Tags.Add(tag);
+            _context.SaveChanges();
+        }
+
+        public void RemoveTag(int id, int idTag)
+        {
+            var tagToDelete = _context.FileTags.FirstOrDefault(c => c.TagId == idTag && c.FileId == id);
+            _context.FileTags.Remove(tagToDelete);
+            _context.SaveChanges();
         }
     }
 }

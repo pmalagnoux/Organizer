@@ -21,6 +21,10 @@ export class FileService {
     return this.http.get<File[]>(`${this.baseURL}`);
   }
 
+  public getFileById(idFile: number): Observable<File> {
+    return this.http.get<File>(`${this.baseURL}/${idFile}`);
+  }
+
   public scanFiles(): void {
     this.http.post(`${this.baseURL}/scan`, null);
   }

@@ -6,6 +6,7 @@ import { Perimeter } from 'src/app/model/perimeter';
 import { ContactService } from 'src/app/service/contact.service';
 import { PerimeterService } from 'src/app/service/perimeter.service';
 
+
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',

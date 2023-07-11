@@ -10,6 +10,8 @@ import { NewPerimeterFormComponent } from './perimeters/new-perimeter-form/new-p
 import { PerimeterFormComponent } from './perimeters/perimeter-form/perimeter-form.component';
 import { PerimeterPageComponent } from './perimeters/perimeter-page/perimeter-page.component';
 import { FilesListComponent } from './files/files-list/files-list.component';
+import { FilePageComponent } from './files/file-page/file-page.component';
+import { TagsListComponent } from './tags/tags-list/tags-list.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'perimeter/:id', component: PerimeterPageComponent},
   {path: 'updateperimeter/:id', component: PerimeterFormComponent},
   {path: 'files', component: FilesListComponent},
+  {path: 'file/:id', component: FilePageComponent},
+  {path: 'tags', component: TagsListComponent},
 ];
 
 @NgModule({
