@@ -1,6 +1,6 @@
 @use  "reference" as ref;
 
-.content {
+#file-page {
     margin: 0;
     padding: 0;
     top:0;
@@ -15,44 +15,85 @@
     font-family: Helvetica;
     background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
     linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
-}
+    
 
-.card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    
-    background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
-    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
-    border-radius: 1em;
-    border: 2px solid transparent;
-    width: 50%;
-    align-items: center;
-    
-}
 
-.tag-list {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    padding-bottom: 1%;
-    
-    h3 {
-        text-align: center;
-        margin-bottom: -1%;
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        
+        background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        border-radius: 1em;
+        border: 2px solid transparent;
+        width: 50%;
+        align-items: center;
+        
     }
-    div {
+
+    .tag-list {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        padding-bottom: 1%;
+        
+        h3 {
+            text-align: center;
+            margin-bottom: -1%;
+        }
+        div {
+        
+            text-align: center;
+        }
+
+    }
+
+    .separator-perimeter {
+        width: 70%;
+        border: 1px solid transparent;
+        background: linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .mat-mdc-form-field {
+        min-width: 100%;
        
-        text-align: center;
+    }
+    .mat-mdc-text-field-wrapper {
+        background-color: transparent;
     }
 
-}
+    .tag-input {
+       
+        color: white;
+    }
 
-.separator-perimeter {
-    width: 70%;
-    border: 1px solid transparent;
-    background: linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+    .tag-input::placeholder {
+        color: white;
+    }
+
+    .tag-element {
+        border: 1px solid transparent;
+        background: 
+        linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+        linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+        color: white;
+    }
+
+    .mat-mdc-chip-action-label {
+        color: white;
+    }
+
+    .mat-icon {
+        color: white;
+    }
+
+
 }

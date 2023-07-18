@@ -38,7 +38,7 @@ export class PerimeterService {
   }
 
   public deleteContact(idPerimeter : number, idContact : number){
-    return this.http.post(`${this.baseURL}/${idPerimeter}/addContact/${idContact}`, null)
+    return this.http.delete(`${this.baseURL}/${idPerimeter}/deleteContact/${idContact}`)
   }
 
   public addContact(idPerimeter : number, idContact : number){

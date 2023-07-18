@@ -85,7 +85,7 @@ namespace apica.Controllers
             _db.addTag(id, idTag);
         }
 
-        [HttpDelete("{id}/addTag/{idTag}")]
+        [HttpDelete("{id}/deleteTag/{idTag}")]
         public void deleteTag(int id, int idTag)
         {
             _db.RemoveTag(id, idTag);

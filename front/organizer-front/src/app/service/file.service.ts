@@ -29,4 +29,11 @@ export class FileService {
     this.http.post(`${this.baseURL}/scan`, null);
   }
 
+  public addTag(idTag: number, idFile:number) {
+    return this.http.post(`${this.baseURL}/${idFile}/addTag/${idTag}`, null);
+  }
+
+  public deleteTag(idTag: number, idFile:number) {
+    return this.http.delete(`${this.baseURL}/${idFile}/deleteTag/${idTag}`);
+  }
 }

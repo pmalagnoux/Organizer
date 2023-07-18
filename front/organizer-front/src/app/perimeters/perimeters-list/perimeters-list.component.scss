@@ -63,14 +63,13 @@
         linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     border: 1px solid transparent;
     border-radius: 10px;
+
     .name {
         padding-left: 1%;
         width: 40%;
         display: flex;
         justify-content: left;
     }
-
-   
 
     .contact {
         width: 40%;

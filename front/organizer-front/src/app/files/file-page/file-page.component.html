@@ -1,4 +1,4 @@
-<div class="content">
+<div id="file-page" class="content">
 
 
     <div class="card">
@@ -13,9 +13,52 @@
                 <i class="fa-solid fa-plus"></i>
             </div>
         </div> -->
+        <!-- <div class="perimeter-bar">
+            <select id="perimeter" class="selector" [(ngModel)]="tag" required>
+                <option selected [ngValue]="undefined">Ajouter un tag</option>
+                <option *ngFor="let ta of tags$ | async" [ngValue]="ta">{{ta.content}}</option>
+            </select>
+            <div class="add-button right" (click)="submitTagsForm()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
         <div class="tag-list">
             <h3>Liste des tags</h3>
             <hr class="separator-perimeter">
-        </div>
+            <div *ngFor="let tag of (file$ | async)?.tags">
+                <div class="perimeter-line">
+                    <span>{{tag.content}}</span>
+                    <div class="action-button" (click)="deleteTag(tag.id)"> 
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </div>
+                <hr class="separator-perimeter">
+            </div>
+        </div> -->
+        <h3>Liste des tags</h3>
+        <hr class="separator-perimeter">
+        <form *ngIf="isReady">
+            <mat-form-field class="example-chip-list">
+              <mat-chip-grid #chipGrid aria-label="tag selection">
+                <mat-chip-row class="tag-element" *ngFor="let tag of (file$ | async)?.tags" (removed)="deleteTag(tag.id)">
+                  {{tag.content}}
+                  <button matChipRemove [attr.aria-label]="'remove ' + tag">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip-row>
+              </mat-chip-grid>
+              <input class="tag-input" placeholder="New tag..." #tagInput [formControl]="tagCtrl"
+                [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addTag($event)"/>
+              <mat-autocomplete id="tag-autocomplete" #auto="matAutocomplete" (optionSelected)="addTag($event)">
+                <mat-option *ngFor="let ta of filteredTags | async" [value]="ta">
+                  {{ta.content}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+          
+
     </div>
 </div>
