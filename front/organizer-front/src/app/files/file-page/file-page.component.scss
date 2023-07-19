@@ -82,7 +82,7 @@
     .tag-element {
         border: 1px solid transparent;
         background: 
-        linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+        linear-gradient( ref.$background-item-transparent, ref.$base-color) padding-box,
         linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
         color: white;
     }

@@ -38,7 +38,7 @@ export class FilePageComponent implements OnInit, AfterViewInit{
       this.tags = data;
       this.filteredTags = this.tagCtrl.valueChanges.pipe(
         startWith(null),
-        map((tag: string | null) => (tag ? this.tags.filter(a  => a.content.includes(tag)) : this.tags))
+        map((tag: string | null) => (tag ? this.tags.filter(a  => a.content.toLowerCase().includes(tag.toLowerCase())) : this.tags))
       );
       this.isReady = true;
     });
@@ -53,7 +53,7 @@ export class FilePageComponent implements OnInit, AfterViewInit{
     }
     
     var ite = document.getElementsByClassName("tag-element")
-    console.log(ite.length)
+  
     for (let index = 0; index < ite.length; index++) {
       const element = ite[index] as HTMLElement;
       const property = "grayscale(100%) sepia(100%) saturate(505%) hue-rotate(";
@@ -80,16 +80,16 @@ export class FilePageComponent implements OnInit, AfterViewInit{
 
   addTag(event: MatChipInputEvent | MatAutocompleteSelectedEvent) {
     if(event instanceof  MatAutocompleteSelectedEvent){
-      console.log(event.option.value)
+
       this.fileService.addTag(event.option.value.id, this.fileId).subscribe((data) =>{
         window.location.reload();
       });
     }
     else{
-      var writtenTag = this.tags.find(a => a.content == event.value)
+      var writtenTag = this.tags.find(a => a.content.toLowerCase() == event.value.toLowerCase())
 
       if (writtenTag != undefined){
-        console.log(event.value, writtenTag)
+
         this.fileService.addTag(writtenTag.id, this.fileId).subscribe((data) =>{
           window.location.reload();
         });

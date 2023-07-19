@@ -1,4 +1,7 @@
 <div id="file-list" class="content">
+
+    <div class="scan-button" (click)="scanFile()"><i id="scan-file-icon" class="fa-solid fa-rotate" (mouseover)="mouseOver()" (mouseout)="mouseOut()"></i></div>
+
     <mat-tree *ngIf="isReady" [dataSource]="dataSource" [treeControl]="treeControl" class="path-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
             {{node.content}}

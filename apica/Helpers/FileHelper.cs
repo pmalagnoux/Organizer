@@ -1,6 +1,7 @@
 ﻿using apica.Context;
 using apica.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -70,8 +71,16 @@ namespace apica.Helpers
                     fileTemp.Location = Path.GetFullPath(file);
                     AddFile(fileTemp);
                 }
-
             }
+            List<File> files = GetFiles();
+            foreach (var file in files) 
+            {
+                if (!allFiles.Contains(file.Location))
+                {
+                    RemoveFile(file.Id);
+                }
+            }
+
         }
 
         private void ScanFiles (List<string> allFiles, string path)

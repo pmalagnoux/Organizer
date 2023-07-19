@@ -25,8 +25,8 @@ export class FileService {
     return this.http.get<File>(`${this.baseURL}/${idFile}`);
   }
 
-  public scanFiles(): void {
-    this.http.post(`${this.baseURL}/scan`, null);
+  public scanFiles() {
+    return this.http.post(`${this.baseURL}/scan`, null);
   }
 
   public addTag(idTag: number, idFile:number) {

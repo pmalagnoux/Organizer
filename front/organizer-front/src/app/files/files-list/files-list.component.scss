@@ -11,6 +11,30 @@
         background-clip: text;
     }
 
+
+    .scan-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: absolute;
+      padding-left: 0.5%;
+      padding-right: 0.5%;
+      padding-top:0.5%;
+      padding-bottom:0.5%;
+      top: 90px;
+      right: 3%;
+      border: 1px solid transparent;
+      background-color: ref.$background-color;
+      background: linear-gradient( ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+      linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+      border-radius: 25em;
+
+      i {
+        color: white;
+      }
+
+    }
+
     .mat-tree {
       padding-top:20px;
       width: 80%;
@@ -64,4 +88,26 @@
       .path-tree div[role=group] > .mat-tree-node {
         padding-left: 40px;
       }
+
+      .tag-element {
+        border: 1px solid transparent;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 25em;
+        background: 
+        linear-gradient( ref.$background-item-transparent, ref.$base-color) padding-box,
+        linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+        color: white;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      
+      gap: 5px 5px;
+    }
 }
