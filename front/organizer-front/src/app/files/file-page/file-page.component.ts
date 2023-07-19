@@ -9,6 +9,8 @@ import { Tag } from 'src/app/model/tag';
 import { TagService } from 'src/app/service/tag.service';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Contact } from 'src/app/model/contact';
+import { ContactService } from 'src/app/service/contact.service';
 
 @Component({
   selector: 'app-file-page',
@@ -27,13 +29,16 @@ export class FilePageComponent implements OnInit, AfterViewInit{
   filteredTags!: Observable<Tag[]>;
   tagCtrl = new FormControl('');
   isReady = false;
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private fileService: FileService, private tagService: TagService, private router: Router){}
+  contact!: Contact;
+  contacts$ !: Observable<Contact[]>;
+
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private fileService: FileService, private contactService: ContactService, private tagService: TagService, private router: Router){}
   
   ngOnInit(): void {
     this.fileId =+ this.route.snapshot.params['id'];
     this.file$ = this.fileService.getFileById(this.fileId); 
     this.tags$ = this.tagService.getAllTags();
-
+    this.contacts$ = this.contactService.getAllContacts();
     this.tags$.subscribe( (data) => {
       this.tags = data;
       this.filteredTags = this.tagCtrl.valueChanges.pipe(
@@ -102,8 +107,28 @@ export class FilePageComponent implements OnInit, AfterViewInit{
       window.location.reload();
     });
   }
+
+
+  submitContactForm(){
+    if(this.contact != undefined){
+      this.fileService.addContact(this.contact.id, this.fileId).subscribe((data) =>{
+        window.location.reload();
+      });
+    }
+  }
+
+  deleteContact(){
+    this.fileService.deleteContact(this.fileId).subscribe((data) =>{
+      window.location.reload();
+    });
+  }
+
+
+  toContact(file: File) {
+    if (file.contact != null){
+      this.router.navigateByUrl(`/contact/${file.contact.id}` )
+    }
+  }
 }
-function submitTagsForm(): ((error: any) => void) | null | undefined {
-  throw new Error('Function not implemented.');
-}
+
 

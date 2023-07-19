@@ -15,7 +15,7 @@
             <hr class="separator-perimeter">
             <div *ngFor="let contact of (perimeter$ | async)?.contacts">
                 <div class="perimeter-line">
-                    <span>{{contact.firstName}} {{contact.lastName}}</span>
+                    <span (click)="toContact(contact)" >{{contact.firstName}} {{contact.lastName}}</span>
                     <div class="action-button" (click)="deleteContact(contact.id)"> 
                         <i class="fa fa-trash"></i>
                     </div>

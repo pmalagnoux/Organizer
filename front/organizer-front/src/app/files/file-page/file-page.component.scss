@@ -13,8 +13,8 @@
     align-items: center;
     color: white;
     font-family: Helvetica;
-    background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
-    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    // background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+    // linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     
 
 
@@ -96,4 +96,84 @@
     }
 
 
+    .separator-perimeter {
+        width: 80%;
+        border: 1px solid transparent;
+        background: linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+    }
+
+    .perimeter-line {
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 20px;
+        span{
+            
+            min-width: fit-content;
+        } 
+    
+        .action-button {
+            padding: 2%;
+            cursor: pointer;
+    
+            i{
+                color: transparent;
+                background: linear-gradient(135deg, rgb(255, 255, 255) 0%, ref.$gradient-button-50 50%, ref.$gradient-button-100 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+        }
+    }
+
+
+
+    .perimeter-bar {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 50%;
+        gap:5px;
+    }
+    
+    .selector {
+        padding-left: 2%;
+        color:white;
+        flex-grow: 2;
+        height: 50px;
+        font-size: large;
+        background: linear-gradient( ref.$base-color-transparent, ref.$base-color) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        border-radius:20px 0  0 20px;
+        border: 2px solid transparent;
+        option {
+            color:white;
+            background: ref.$base-color;
+        }
+    }
+    
+    .add-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        width: 46px;
+        height: 46px;
+        background: linear-gradient( ref.$base-color-transparent, ref.$base-color) padding-box,
+        linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        border-radius:0 20px 20px 0;
+        border: 2px solid transparent;
+    }
+
+    .display-name {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2%;
+    }
 }

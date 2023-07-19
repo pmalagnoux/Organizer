@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Contact } from 'src/app/model/contact';
 import { Perimeter } from 'src/app/model/perimeter';
@@ -18,7 +18,7 @@ export class PerimeterPageComponent implements OnInit{
   perimeter$!: Observable<Perimeter>;
   contacts$!: Observable<Contact[]>;
   contact!: Contact;
-  constructor(private route: ActivatedRoute, private contactService : ContactService, private perimeterService: PerimeterService){}
+  constructor(private route: ActivatedRoute, private contactService : ContactService, private perimeterService: PerimeterService, private router : Router){}
 
   ngOnInit(): void {
       this.perimeterId = +this.route.snapshot.params['id'];
@@ -40,5 +40,9 @@ export class PerimeterPageComponent implements OnInit{
     this.perimeterService.deleteContact(this.perimeterId, idContact).subscribe((data) =>{
       window.location.reload();
     });
+  }
+
+  toContact(contact: Contact){
+    this.router.navigateByUrl(`/contact/${contact.id}` )
   }
 }

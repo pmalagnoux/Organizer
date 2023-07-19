@@ -16,4 +16,8 @@ export class LandingPageComponent {
     this.router.navigateByUrl(`/contacts`);
   }
 
+  toFilesPage() {
+    this.router.navigateByUrl(`/files`)
+  }
+
 }

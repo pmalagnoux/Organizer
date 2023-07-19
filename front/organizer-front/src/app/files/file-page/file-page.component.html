@@ -4,37 +4,6 @@
     <div class="card">
         <h2>{{(file$ | async)?.name}}</h2>
     
-        <!-- <div class="perimeter-bar">
-            <select id="perimeter" class="selector" [(ngModel)]="perimeter" required>
-                <option selected [ngValue]="undefined">Choisissez un périmètre</option>
-                <option *ngFor="let peri of perimeters$ | async" [ngValue]="peri">{{peri.content}}</option>
-            </select>
-            <div class="add-button right" (click)="submitPerimeterForm()">
-                <i class="fa-solid fa-plus"></i>
-            </div>
-        </div> -->
-        <!-- <div class="perimeter-bar">
-            <select id="perimeter" class="selector" [(ngModel)]="tag" required>
-                <option selected [ngValue]="undefined">Ajouter un tag</option>
-                <option *ngFor="let ta of tags$ | async" [ngValue]="ta">{{ta.content}}</option>
-            </select>
-            <div class="add-button right" (click)="submitTagsForm()">
-                <i class="fa-solid fa-plus"></i>
-            </div>
-        </div>
-        <div class="tag-list">
-            <h3>Liste des tags</h3>
-            <hr class="separator-perimeter">
-            <div *ngFor="let tag of (file$ | async)?.tags">
-                <div class="perimeter-line">
-                    <span>{{tag.content}}</span>
-                    <div class="action-button" (click)="deleteTag(tag.id)"> 
-                        <i class="fa fa-trash"></i>
-                    </div>
-                </div>
-                <hr class="separator-perimeter">
-            </div>
-        </div> -->
         <h3>Liste des tags</h3>
         <hr class="separator-perimeter">
         <form *ngIf="isReady">
@@ -59,6 +28,26 @@
             </mat-form-field>
           </form>
           
-
+          <div class="perimeter-bar">
+            <select id="perimeter" class="selector" [(ngModel)]="contact" required>
+                <option selected [ngValue]="undefined">Choisissez un Contact</option>
+                <option *ngFor="let contact of contacts$ | async" [ngValue]="contact">{{contact.firstName}} {{contact.lastName}}</option>
+            </select>
+            <div class="add-button right" (click)="submitContactForm()">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+        
+        <div *ngIf=" file$ | async as file"  class="display-name">
+          <hr class="separator-perimeter" style="width: 100%;">
+          <div  class="perimeter-line"  *ngIf="file.contact != null">
+            <span (click)="toContact(file)">{{file.contact.firstName + " " + file.contact.lastName}}</span>
+            <div class="action-button" (click)="deleteContact()"> 
+                <i class="fa fa-trash"></i>
+            </div>
+          
+          </div>
+          <hr class="separator-perimeter" style="width: 100%;">
+      </div>
     </div>
 </div>

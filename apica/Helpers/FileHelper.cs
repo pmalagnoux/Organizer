@@ -40,7 +40,7 @@ namespace apica.Helpers
 
         public File GetFile(int id)
         {
-            File response = _context.Files.Include(c => c.Tags).FirstOrDefault(x=> x.Id == id);
+            File response = _context.Files.Include(c => c.Tags).Include(c => c.Contact).FirstOrDefault(x=> x.Id == id);
             return response;
         }
 
@@ -108,6 +108,22 @@ namespace apica.Helpers
         {
             var tagToDelete = _context.FileTags.FirstOrDefault(c => c.TagId == idTag && c.FileId == id);
             _context.FileTags.Remove(tagToDelete);
+            _context.SaveChanges();
+        }
+
+
+        public void addContact(int id, int idContact)
+        {
+            File response = _context.Files.Single(c => c.Id == id);
+            Contact contact = _context.Contacts.Find(idContact);
+            response.Contact = contact;
+            _context.SaveChanges();
+        }
+
+        public void RemoveContact(int id)
+        {
+            File response = _context.Files.Include(c => c.Contact).Single(c => c.Id == id);
+            response.Contact = null;
             _context.SaveChanges();
         }
     }

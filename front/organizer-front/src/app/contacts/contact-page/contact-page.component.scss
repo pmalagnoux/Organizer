@@ -13,8 +13,7 @@
     align-items: center;
     color: white;
     font-family: Helvetica;
-    background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
-    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    // background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box;
 }
 
 .card {

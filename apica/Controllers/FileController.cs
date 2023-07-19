@@ -90,5 +90,19 @@ namespace apica.Controllers
         {
             _db.RemoveTag(id, idTag);
         }
+
+        [HttpPost("{id}/addContact/{idContact}")]
+        public void addContact(int id, int idContact)
+        {
+            _db.addContact(id, idContact);
+        }
+
+        [HttpDelete("{id}/deleteContact")]
+        public void deleteContact(int id)
+        {
+            _db.RemoveContact(id);
+        }
+
+
     }
 }

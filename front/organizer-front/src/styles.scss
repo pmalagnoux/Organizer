@@ -5,7 +5,14 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: ref.$base-color;
+    // background-color: ref.$base-color;
+    background-image: url("./assets/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    
+    
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

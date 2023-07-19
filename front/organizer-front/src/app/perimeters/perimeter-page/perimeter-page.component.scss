@@ -11,10 +11,10 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: Helvetica;
-    background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
-    linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+    // background: linear-gradient( ref.$background-card-transparent, ref.$base-color) padding-box,
+    // linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
     
 }
 

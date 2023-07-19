@@ -36,4 +36,12 @@ export class FileService {
   public deleteTag(idTag: number, idFile:number) {
     return this.http.delete(`${this.baseURL}/${idFile}/deleteTag/${idTag}`);
   }
+
+  public addContact(idContact: number, idFile:number) {
+    return this.http.post(`${this.baseURL}/${idFile}/addContact/${idContact}`, null);
+  }
+
+  public deleteContact(idFile:number) {
+    return this.http.delete(`${this.baseURL}/${idFile}/deleteContact`);
+  }
 }
