@@ -1,0 +1,54 @@
+<div id="search">
+    <div class="search-bar">
+       
+        <input type="text" placeholder="Search..">
+
+        <div class ="filters">
+            <div class ="tag-filter">
+                <mat-form-field class="forms">
+                    <!-- Tags -->
+                    <mat-chip-grid #chipGrid aria-label="tag selection">
+                        <mat-chip-row class="tag-element" *ngFor="let tag of selectedTags" (removed)="deleteTag(tag.id)">
+                        {{tag.content}}
+                        <button matChipRemove [attr.aria-label]="'remove ' + tag">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                        </mat-chip-row>
+                    </mat-chip-grid>
+                    <input class="tag-input" placeholder="New tag..." #tagInput [formControl]="tagCtrl"
+                    [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="addTag($event)"/>
+                <mat-autocomplete id="tag-autocomplete" #auto="matAutocomplete" (optionSelected)="addTag($event)">
+                    <mat-option *ngFor="let ta of filteredTags | async" [value]="ta">
+                    {{ta.content}}
+                    </mat-option>
+                </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <hr class="separator" style="height: 100%;">
+            <div class="type-filter">
+                <mat-form-field class="forms">
+                    <!-- Types de recherche -->
+                    <mat-label style="color: white;">Type</mat-label>
+                    <mat-select class="type-select" [(value)]="type" (selectionChange)="typeFilter()">
+                        <mat-option value="">Tout</mat-option>
+                        <mat-option value="contact">Contact</mat-option>
+                        <mat-option value="perimeter">Périmètre</mat-option>
+                        <mat-option value="file">Fichier</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <span class="icon-container"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </div>
+    <mat-chip-grid #chipGrid aria-label="tag selection">
+        <mat-chip-row class="tag-element" *ngFor="let tag of selectedTags" (removed)="deleteTag(tag.id)">
+        {{tag.content}}
+        <button matChipRemove [attr.aria-label]="'remove ' + tag">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        </mat-chip-row>
+    </mat-chip-grid>
+</div>

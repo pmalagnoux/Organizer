@@ -14,18 +14,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactsListComponent } from './contacts/contacts-list/contacts-list.component';
 import { ContactPageComponent } from './contacts/contact-page/contact-page.component';
 import { NewContactFormComponent } from './contacts/new-contact-form/new-contact-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactModule } from './contacts/contact.module';
 import { PerimetersModule } from './perimeters/perimeters.module';
 import { FilesModule } from './files/files.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagsModule } from './tags/tags.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FilesModule, 
     TagsModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatChipsModule, 
+    MatIconModule
 
 
   ],

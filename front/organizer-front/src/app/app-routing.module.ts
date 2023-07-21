@@ -12,6 +12,7 @@ import { PerimeterPageComponent } from './perimeters/perimeter-page/perimeter-pa
 import { FilesListComponent } from './files/files-list/files-list.component';
 import { FilePageComponent } from './files/file-page/file-page.component';
 import { TagsListComponent } from './tags/tags-list/tags-list.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'files', component: FilesListComponent},
   {path: 'file/:id', component: FilePageComponent},
   {path: 'tags', component: TagsListComponent},
+  {path: 'search-bar', component: SearchBarComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,117 @@
+@use  "reference" as ref;
+#search {
+    
+    margin-top: 50px; // A supprimer
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-size: 2rem; 
+
+
+    .search-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.5%;
+        width: 60%;
+        height: 60px;
+    }
+    
+    input[type=text] {
+        width: 90%;
+        font-size: 2rem;   
+        color: white;
+        font-family: Helvetica;
+        padding:1% 2% 1% 2%;
+        border-radius:50em 0% 0% 50em;
+        background: linear-gradient(ref.$background-item-transparent,  ref.$background-item-transparent) padding-box,
+        linear-gradient(45deg, ref.$gradient-border-0 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        border: 2px solid transparent;
+
+    }
+
+    .icon-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding:1% 2% 1% 1%;
+        border-radius:0% 50em 50em 0%;
+        border: 2px solid transparent;
+        background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+        linear-gradient(90deg, ref.$gradient-border-100 0%, ref.$gradient-border-50 50%, ref.$gradient-border-0 100%) border-box;
+        border-radius: 50em 50em 50em em;
+  
+    }
+
+
+
+  .mat-mdc-form-field-subscript-wrapper  {
+    display: none;
+  }
+
+
+    .filters {
+        display: flex;
+        gap: 0.5%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+      
+        border: 2px solid transparent;
+        background: linear-gradient(ref.$base-color, ref.$base-color) padding-box,
+        linear-gradient(90deg, ref.$gradient-border-100 0%, ref.$gradient-border-50 50%, ref.$gradient-border-100 100%) border-box;
+        padding: 0.5%;
+        padding: 0.5% ;
+    }
+
+
+
+    .tag-filter  {
+        display: flex;
+        align-items: center;
+        height: fit-content;
+    }
+
+    .mat-mdc-text-field-wrapper {
+        background-color: transparent;
+    }
+
+    .tag-input {
+       
+        color: white;
+    }
+
+    .tag-input::placeholder {
+        color: white;
+    }
+
+    .tag-element {
+        border: 1px solid transparent;
+        background: 
+        linear-gradient( ref.$background-item-transparent, ref.$base-color) padding-box,
+        linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+        color: white;
+    }
+
+    .type-select {
+        color: white;
+    }
+
+    .type-select::placeholder {
+        color: white;
+    }
+
+    .mat-mdc-select-arrow{
+        color: white;
+    }
+
+    .separator {
+        border: 1px solid transparent;
+        background: linear-gradient(-90deg, ref.$gradient-border-0 0%, ref.$gradient-border-100 100%) border-box;
+    }
+
+}
+

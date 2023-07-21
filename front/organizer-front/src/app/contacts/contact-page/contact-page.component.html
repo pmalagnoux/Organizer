@@ -26,5 +26,16 @@
                 <hr class="separator-perimeter">
             </div>
         </div>
+
+        <div class="perimeter-list">
+            <h3>Liste des Fichiers</h3>
+            <hr class="separator-perimeter">
+            <div *ngFor="let file of (contact$ | async)?.files">
+                <div class="perimeter-line">
+                    <span (click)="tofile(file)">{{file.name +  " " + file.extension}} </span>
+                </div>
+                <hr class="separator-perimeter">
+            </div>
+        </div>
     </div>
 </div>

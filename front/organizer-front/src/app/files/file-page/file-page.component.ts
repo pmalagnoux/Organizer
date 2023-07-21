@@ -74,7 +74,6 @@ export class FilePageComponent implements OnInit, AfterViewInit{
 		}
 	}
 
-
   submitTagsForm(){
     if(this.tag != undefined){
       this.fileService.addTag(this.tag.id, this.fileId).subscribe((data) =>{

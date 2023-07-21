@@ -16,7 +16,7 @@ namespace apica.Helpers
         public List<Contact> GetContacts()
         {
             List<Contact> response = new List<Contact>();
-            var dataList = _context.Contacts.Include(pe => pe.Perimeters).ToList();
+            var dataList = _context.Contacts.Include(pe => pe.Perimeters).Include(f => f.Files).ToList();
             return dataList;
         }
 
@@ -43,7 +43,7 @@ namespace apica.Helpers
 
         public Contact GetContact(int id)
         {
-            Contact response = _context.Contacts.Include(pe => pe.Perimeters).FirstOrDefault(x=> x.Id == id);
+            Contact response = _context.Contacts.Include(pe => pe.Perimeters).Include(f => f.Files).FirstOrDefault(x=> x.Id == id);
             return response;
         }
 
